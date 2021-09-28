@@ -1,0 +1,6 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file alias="new.svg">resources\new.svg</file>
+    <file alias="plus.svg">resources\plus.svg</file>
+</qresource>
+</RCC>
