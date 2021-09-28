@@ -5,7 +5,7 @@ from .database import createConnection
 
 def main():
     app = QApplication(sys.argv)
-    if not createConnection("contacts.sqlite"):
+    if not createConnection("POS.sqlite"):
         sys.exit(1)
     win = Window()
     win.show()
