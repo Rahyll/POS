@@ -1,6 +1,8 @@
 import sys
 from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
+import POS.qrc_resources
 
 from PyQt5.QtWidgets import (
 
@@ -14,7 +16,9 @@ from PyQt5.QtWidgets import (
     QAction,
     QToolBar,
     QLineEdit,
-    QFormLayout
+    QFormLayout,
+    QVBoxLayout,
+    QDialog,
 
 )
 class Window(QMainWindow):
@@ -32,9 +36,15 @@ class Window(QMainWindow):
         self.setMenuBar(menubar)
         self.new = QAction("&New", self)
         menubar.addMenu('&Tools').addAction(self.new)
+        opendialog=AddDialog()
+        self.new.triggered.connect(opendialog.exec())
     def _createToolBar(self):
         toolbar = QToolBar(self)
         self.addToolBar(toolbar)
+        toolbar.addAction(QIcon(":plus.svg"),"&Add")
+        toolbar.setToolButtonStyle(Qt.ToolButtonIconOnly)
+        toolbar.setMovable(False)
+
 
 
 class AddDialog(QDialog):
@@ -52,6 +62,7 @@ class AddDialog(QDialog):
         layout = QFormLayout()
         layout.addRow("Name",self.name)
         layout.addRow("Amount",self.Quantity)
+        self.layout.addLayout(layout)
 
 
 
