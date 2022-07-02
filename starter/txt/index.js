@@ -13,6 +13,11 @@ const server = http.createServer(function(req, res){
         res.end('This is the OVERVIEW');
     elseif (pathName = '/product'){
         res.end('this is the PRODUCT');
+    elseif (pathName = '/api'){
+        res.writeHead('Content-type' : 'JSON' ,
+        'my-own-header' : ''
+        )
+    }
     }else{
         res.writeHead(404, {
             'Content-type' : 'text/html' ,
